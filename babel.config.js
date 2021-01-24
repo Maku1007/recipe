@@ -4,13 +4,13 @@ const presets = [
     {
       targets: {
         edge: "17",
-        firefox: "60",
+        firefox: "30",
         chrome: "67",
-        safari: "11.1",
+        safari: "11.1"
       },
-      useBuiltIns: "usage",
-    },
-  ],
+      useBuiltIns: "usage"
+    }
+  ]
 ];
 
 module.exports = { presets };
