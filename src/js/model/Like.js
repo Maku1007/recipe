@@ -1,37 +1,35 @@
-import { elements } from "../view/base";
-
-export default class Like {
+export default class Likes {
   constructor() {
     this.readDataFromLocalStorage();
 
     if (!this.likes) this.likes = [];
   }
 
-  addLike(id, title, author, img) {
+  addLike(id, title, publisher, img) {
     const like = { id, title, publisher, img };
     this.likes.push(like);
 
-    // Storage руу хадгална
+    // storage руу хадгална
     this.saveDataToLocalStorage();
 
     return like;
   }
 
   deleteLike(id) {
-    // id гэдэг ID-тэй like-ийг индексийг массиваас хайж олно
-    const index = this.likes.findIndex((el) => el.id === id);
+    // id гэдэг ID-тэй like-ийг индексийг массиваас хайж олно.
+    const index = this.likes.findIndex(el => el.id === id);
 
     // Уг индекс дээрх элементийг массиваас устгана
     this.likes.splice(index, 1);
 
-    // Storage руу хадгална
+    // storage руу хадгална
     this.saveDataToLocalStorage();
   }
 
   isLiked(id) {
-    // if (this.likes.findIndex((el) => el.id === id) === -1) return true;
-    // else return false;
-    return this.likes.findIndex((el) => el.id !== id) === -1;
+    //   if( this.likes.findIndex(el => el.id === id) === -1) return false;
+    //   else return true;
+    return this.likes.findIndex(el => el.id === id) !== -1;
   }
 
   getNumberOfLikes() {
